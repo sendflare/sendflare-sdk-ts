@@ -50,26 +50,10 @@ export interface ListContactReq extends PaginateReq {
 }
 
 /**
- * Contact info entity
- */
-export interface ContactItem {
-  status: string;
-  emailAddress: string;
-  language: string;
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  birthday: string;
-  company: string;
-  vipLevel: number;
-  amount: string;
-}
-
-/**
  * Get Contact list response entity
  */
 export interface ListContactResp extends PaginateResp {
-  data: ContactItem[];
+  list: Record<string, string>[];
 }
 
 /**
