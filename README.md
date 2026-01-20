@@ -168,7 +168,7 @@ const response: SendEmailResp = await client.sendEmail(req);
 
 ## Documentation
 
-[https://docs.sendflare.io](https://docs.sendflare.io)
+[https://docs.sendflare.com](https://docs.sendflare.com)
 
 ## LICENSE
 

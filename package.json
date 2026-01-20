@@ -33,7 +33,7 @@
     "type": "git",
     "url": "https://github.com/sendflare/sendflare-sdk-ts.git"
   },
-  "homepage": "https://docs.sendflare.io",
+  "homepage": "https://docs.sendflare.com",
   "bugs": {
     "url": "https://github.com/sendflare/sendflare-sdk-ts/issues"
   },

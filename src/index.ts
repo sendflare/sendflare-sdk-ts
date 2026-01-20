@@ -9,7 +9,7 @@ import {
   DeleteContactResp,
 } from './types';
 
-const BASE_URL = 'https://api.sendflare.io';
+const BASE_URL = 'https://api.sendflare.com';
 const REQUEST_TIMEOUT = 10000; // 10 seconds in milliseconds
 
 /**
