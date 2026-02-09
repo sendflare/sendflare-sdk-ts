@@ -52,8 +52,11 @@ export interface ListContactReq extends PaginateReq {
 /**
  * Get Contact list response entity
  */
-export interface ListContactResp extends CommonResponse, PaginateResp {
+export interface ListContactResp extends CommonResponse {
   data: {
+    page: number;
+    pageSize: number;
+    totalCount: number;
     list: Record<string, string>[];
   };
 }
