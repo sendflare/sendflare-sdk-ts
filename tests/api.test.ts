@@ -25,6 +25,8 @@ describe('Sendflare SDK', () => {
         to: 'to@example.com',
         subject: 'test',
         body: 'test email',
+        cc: ['cc@example.com'],
+        bcc: ['bcc@example.com'],
       };
 
       // Note: This test will fail without a valid token
