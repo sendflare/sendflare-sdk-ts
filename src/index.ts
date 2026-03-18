@@ -1,6 +1,8 @@
 import {
   SendEmailReq,
   SendEmailResp,
+  BatchSendEmailReq,
+  BatchSendEmailResp,
   ListContactReq,
   ListContactResp,
   SaveContactReq,
@@ -20,6 +22,11 @@ export interface SendflareImpl {
    * Send an email
    */
   sendEmail(req: SendEmailReq): Promise<SendEmailResp>;
+
+  /**
+   * Send a batch of emails
+   */
+  batchSendEmail(req: BatchSendEmailReq): Promise<BatchSendEmailResp>;
   
   /**
    * Get contact list
@@ -54,6 +61,16 @@ export class Sendflare implements SendflareImpl {
     const path = '/v1/send';
     
     const response = await this.makeRequest<SendEmailResp>('POST', path, req);
+    return response;
+  }
+
+  /**
+   * Send a batch of emails
+   */
+  async batchSendEmail(req: BatchSendEmailReq): Promise<BatchSendEmailResp> {
+    const path = '/v1/batchSend';
+    
+    const response = await this.makeRequest<BatchSendEmailResp>('POST', path, req);
     return response;
   }
 

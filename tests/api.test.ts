@@ -1,6 +1,7 @@
 import { Sendflare, createSendflare } from '../src';
 import {
   SendEmailReq,
+  BatchSendEmailReq,
   ListContactReq,
   SaveContactReq,
   DeleteContactReq,
@@ -27,6 +28,7 @@ describe('Sendflare SDK', () => {
         body: 'test email',
         cc: ['cc@example.com'],
         bcc: ['bcc@example.com'],
+        replyTo: ['replyTo@example.com'],
       };
 
       // Note: This test will fail without a valid token
@@ -38,6 +40,30 @@ describe('Sendflare SDK', () => {
         console.log('SendEmail response:', result);
       } catch (error) {
         console.log('SendEmail error (expected without valid token):', error);
+      }
+    });
+  });
+
+  describe('batchSendEmail', () => {
+    test('should send a batch of emails', async () => {
+      const client = createSendflare(testToken);
+      const req: BatchSendEmailReq = {
+        from: 'test@example.com',
+        to: ['to@example.com'],
+        subject: 'test',
+        body: 'test email',
+        cc: ['cc@example.com'],
+        bcc: ['bcc@example.com'],
+        replyTo: ['replyTo@example.com'],
+      };
+
+      console.log('BatchSendEmail request:', req);
+      
+      try {
+        const result = await client.batchSendEmail(req);
+        console.log('BatchSendEmail response:', result);
+      } catch (error) {
+        console.log('BatchSendEmail error (expected without valid token):', error);
       }
     });
   });

@@ -37,12 +37,31 @@ export interface SendEmailReq {
   body: string;
   cc: string[];
   bcc: string[];
+  replyTo: string[];
 }
 
 /**
  * Send Email response entity
  */
 export type SendEmailResp = CommonResponse;
+
+/**
+ * Batch Send Email request entity
+ */
+export interface BatchSendEmailReq {
+  from: string;
+  to: string[];
+  subject: string;
+  body: string;
+  cc: string[];
+  bcc: string[];
+  replyTo: string[];
+}
+
+/**
+ * Batch Send Email response entity
+ */
+export type BatchSendEmailResp = CommonResponse;
 
 /**
  * Get Contact list request entity
