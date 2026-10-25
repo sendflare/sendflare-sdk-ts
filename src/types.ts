@@ -27,6 +27,16 @@ export interface CommonResponse<T = any> {
   data?: T;
 }
 
+/** Attachment content must be a Base64-encoded string (without a data URL prefix). */
+export interface SendAttachment {
+  filename: string;
+  content: string;
+  contentType?: string;
+  contentId?: string;
+  /** Defaults to attachment; use inline for embedded content. */
+  disposition?: string;
+}
+
 /**
  * Send Email request entity
  */
@@ -38,6 +48,7 @@ export interface SendEmailReq {
   cc: string[];
   bcc: string[];
   replyTo: string[];
+  attachments?: SendAttachment[];
 }
 
 /**
@@ -56,6 +67,7 @@ export interface BatchSendEmailReq {
   cc: string[];
   bcc: string[];
   replyTo: string[];
+  attachments?: SendAttachment[];
 }
 
 /**

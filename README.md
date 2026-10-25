@@ -174,3 +174,19 @@ const response: SendEmailResp = await client.sendEmail(req);
 
 [MIT](./LICENSE)
 
+
+## Attachments
+
+Single and batch email requests support an optional `attachments` list. Each attachment has `filename` and `content`, plus optional `contentType`, `contentId`, and `disposition`. Omit `disposition` for a normal attachment, or use `inline` and reference `contentId` from the HTML body (for example, `<img src="cid:logo">`).
+
+```typescript
+import { SendAttachment } from 'sendflare-sdk-ts';
+
+const attachments: SendAttachment[] = [
+  { filename: 'report.txt', content: Buffer.from('hello').toString('base64') },
+  { filename: 'logo.png', content: imageBase64, contentType: 'image/png', contentId: 'logo', disposition: 'inline' },
+];
+// Add attachments to your sendEmail or batchSendEmail request.
+```
+
+`content` must be a Base64 string without a `data:` URL prefix. The example uses Node.js `Buffer`.
